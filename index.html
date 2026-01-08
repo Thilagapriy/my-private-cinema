@@ -8,20 +8,19 @@
 </head>
 <body>
     <div id="video-container" class="container">
-        <h2>Now Watching</h2>
-        
-        <video id="videoPlayer" playsinline>
-            <source src="https://www.dropbox.com/scl/fi/zaycu26p3snmgmuf501qi/1000137930.mp4?rlkey=nhhpmtgd68x3i3e3yh6rn2dak&st=ntetjz4y&raw=1" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    <video id="videoPlayer" playsinline>
+        <source src="YOUR_DROPBOX_LINK_HERE&raw=1" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
-        <div class="custom-controls">
-            <button onclick="changeTime(-10)">-10s</button>
-            <button id="playPauseBtn" onclick="togglePlay()">Play</button>
-            <button onclick="changeTime(10)">+10s</button>
-            <button class="fs-btn" onclick="toggleFullScreen()">⛶ Full Screen</button>
-        </div>
+    <div class="custom-controls">
+        <button onclick="changeTime(-10)">-10s</button>
+        <button id="playPauseBtn" onclick="togglePlay()">Play</button>
+        <button onclick="changeTime(10)">+10s</button>
+        <button class="fs-btn" onclick="toggleFullScreen()">⛶ Full Screen</button>
     </div>
+</div>
     <script src="script.js"></script>
 </body>
+
 </html>
