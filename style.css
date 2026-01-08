@@ -4,18 +4,17 @@ body {
     font-family: sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center;
-    /* Changed height to min-height so it can expand on small screens */
-    min-height: 100vh; 
+    /* Changed from center to flex-start to keep everything visible from the top */
+    align-items: flex-start; 
+    min-height: 100vh;
     margin: 0;
-    /* Prevents side-scrolling on mobile */
-    overflow-x: hidden; 
+    padding-top: 20px; /* Gives a small gap at the very top */
+    overflow-x: hidden;
 }
 
 .container { 
     text-align: center; 
-    /* Ensures the container takes up most of the screen on mobile */
-    width: 95%; 
+    width: 100%; /* Take full width on mobile */
     max-width: 900px; 
     padding: 10px; 
     box-sizing: border-box;
@@ -23,59 +22,42 @@ body {
 
 video {
     width: 100%;
-    /* Ensures the video maintains aspect ratio without being cut */
     height: auto; 
     border-radius: 8px;
     background: #1a1a1a;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    /* Ensures the video is the priority on the screen */
+    display: block;
 }
 
 .custom-controls {
-    margin-top: 15px;
+    margin-top: 10px; /* Reduced margin to keep buttons close to the video */
     display: flex;
     justify-content: center;
-    /* Allows buttons to move to the next row if they don't fit */
     flex-wrap: wrap; 
-    gap: 10px;
+    gap: 8px;
 }
 
 button {
     background: #333;
     border: 1px solid #555;
     color: white;
-    padding: 12px 18px;
+    padding: 12px 10px;
     border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    /* Helps buttons stay a reasonable size on mobile */
-    flex: 1 1 auto; 
-    min-width: 80px;
-    transition: transform 0.1s;
+    font-size: 14px;
+    flex: 1 1 auto; /* Buttons grow/shrink to fit the phone width */
+    min-width: 70px;
 }
 
-button:active { 
-    background: #555; 
-    transform: scale(0.95); /* Visual feedback for touch */
-}
-
-.fs-btn { 
-    background: #e50914; 
-    border: none; 
-    font-weight: bold;
-}
-
-/* --- MOBILE SPECIFIC FIXES --- */
+/* Mobile-specific tweak to prevent any cut-off */
 @media (max-width: 600px) {
-    button {
-        padding: 10px 5px;
-        font-size: 14px; /* Slightly smaller text for narrow screens */
+    body {
+        padding-top: 10px;
     }
-    
     .container {
         padding: 5px;
     }
-
-    h2 {
-        font-size: 1.2rem; /* Shrinks the "Now Watching" title on phones */
+    button {
+        padding: 10px 5px;
+        font-size: 13px;
     }
 }
