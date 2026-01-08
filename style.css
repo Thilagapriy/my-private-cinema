@@ -1,63 +1,95 @@
 body {
     background-color: #000;
-    color: white;
+    margin: 0;
     font-family: sans-serif;
     display: flex;
     justify-content: center;
-    /* Changed from center to flex-start to keep everything visible from the top */
-    align-items: flex-start; 
+    align-items: center;
     min-height: 100vh;
-    margin: 0;
-    padding-top: 20px; /* Gives a small gap at the very top */
-    overflow-x: hidden;
 }
 
+/* Login Styling */
+#login-screen {
+    text-align: center;
+    color: white;
+}
+.login-box {
+    background: #222;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255,0,0,0.2);
+}
+input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Responsive Video Wrapper */
 .container { 
-    text-align: center; 
-    width: 100%; /* Take full width on mobile */
-    max-width: 900px; 
-    padding: 10px; 
-    box-sizing: border-box;
+    width: 100vw; 
+    height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
 }
-
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    background: #000;
+}
 video {
     width: 100%;
-    height: auto; 
-    border-radius: 8px;
-    background: #1a1a1a;
-    /* Ensures the video is the priority on the screen */
     display: block;
+    object-fit: contain; /* Ensures video fits screen without cutting */
 }
 
-.custom-controls {
-    margin-top: 10px; /* Reduced margin to keep buttons close to the video */
+/* Controls Overlay */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap; 
-    gap: 8px;
+    align-items: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s;
+    background: rgba(0, 0, 0, 0.4); /* Darkens video when hovering */
 }
+.video-wrapper:hover .video-overlay { opacity: 1; } /* Shows buttons on hover/touch */
 
-button {
-    background: #333;
-    border: 1px solid #555;
+.overlay-controls {
+    display: flex;
+    gap: 20px;
+}
+.overlay-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
     color: white;
-    padding: 12px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    flex: 1 1 auto; /* Buttons grow/shrink to fit the phone width */
-    min-width: 70px;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.main-play { padding: 25px; font-weight: bold; }
+.fs-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: #e50914;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
 }
 
-/* Mobile-specific tweak to prevent any cut-off */
+/* Mobile Specific Adjustments */
 @media (max-width: 600px) {
-    body {
-        padding-top: 10px;
-    }
-    .container {
-        padding: 5px;
-    }
-    button {
-        padding: 10px 5px;
-        font-size: 13px;
-    }
+    .overlay-btn { padding: 10px; font-size: 12px; }
+    .main-play { padding: 15px; }
 }
