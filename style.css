@@ -1,0 +1,34 @@
+body {
+    background-color: #000;
+    color: white;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container { text-align: center; width: 100%; max-width: 900px; padding: 10px; }
+video {
+    width: 100%;
+    border-radius: 8px;
+    background: #1a1a1a;
+}
+.custom-controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+button {
+    background: #333;
+    border: 1px solid #555;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:active { background: #555; }
+.fs-btn { background: #e50914; border: none; } /* Netflix Red for Fullscreen */
