@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Cinema</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="shapes"></div>
+
+    <div id="login-screen" class="container">
+        <h1>Welcome Back</h1>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="checkLogin()">Enter Cinema</button>
+    </div>
+
+    <div id="movie-section" class="container hidden">
+        <h2 id="applause-msg">🎉 Welcome! 🎉</h2>
+        <div class="movie-card">
+            <h3>With Love (2026)</h3>
+            <button class="play-main-btn" onclick="openPlayer()">Play Movie</button>
+        </div>
+    </div>
+
+    <div id="video-player-container" class="player-overlay hidden">
+        <button class="exit-btn" onclick="closePlayer()">➜</button>
+        
+        <video id="main-video" playsinline>
+            <source src="https://www.dropbox.com/scl/fi/o24ao3eq7igvpx7h9yfsl/www.1TamilMV.rsvp-With-Love-2026-Tamil-HQ-PreDVD-x264-HQ-Clean-AAC-700MB.mkv?rlkey=80g2quoqi6be01z1mvkr2nc56&st=oya6bacd&dl=1" type="video/mp4">
+        </video>
+
+        <div class="controls">
+            <div class="seek-bar-container">
+                <span id="current-time">00:00</span>
+                <input type="range" id="seek-bar" value="0" min="0" step="1">
+                <span id="duration-time">00:00</span>
+            </div>
+            
+            <div class="buttons-row">
+                <button id="back-btn" class="nav-btn">10s ◄</button>
+                <button id="play-pause">Play</button>
+                <button id="forward-btn" class="nav-btn">► 10s</button>
+                <button id="full-screen">Full Screen</button>
+            </div>
+        </div>
+
+        <div class="tap-zone left" id="tap-left"></div>
+        <div class="tap-zone right" id="tap-right"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
